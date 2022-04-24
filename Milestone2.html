@@ -1,3 +1,307 @@
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="description" content="Student Form">
+
+<meta name="keywords" content="Student, Page">
+
+<meta name="author" content="demo author">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+
+.header {
+
+background: grey;
+
+text-align: center;
+
+padding: 3%;
+
+font-weight: bold;
+
+font-size: 25px;
+
+}
+
+.container {
+
+padding: 2%;
+
+}
+
+.banner {
+
+background-repeat: no-repeat;
+
+background-size: cover;
+
+background-position: center;
+
+width: 100%;
+
+text-align: center;
+
+font-size: large;
+
+}
+
+.divRow {
+
+width: 100%
+
+}
+
+.cell1{
+
+width: 25%;
+
+display: inline;
+
+float: left;
+
+padding-top:1%;
+
+padding-bottom:1%;
+
+}
+
+.cell2 {
+
+width: 75%;
+
+display: inline;
+
+float: left;
+
+padding-top:1%;
+
+padding-bottom:1%;
+
+}
+
+.bottom-content {
+
+width: 40%;
+
+float:left;
+
+display: inline-block;
+
+}
+
+.message-content {
+
+width: 50%;
+
+float:left;
+
+display: inline-block;
+
+padding-left:2%;
+
+}
+
+.calcBtn{
+
+width:100%;
+
+height: 35px;
+
+}
+
+</style>
+
+<script type="text/javascript">
+
+function calculate(){
+
+var grade = document.getElementById("grade");
+
+var studentStatus = document.getElementById("status");
+
+var message = document.getElementById("message-content");
+
+var gradePoint = 0;
+
+if(grade.value == "A")
+
+{
+
+gradePoint = 4.0;
+
+}
+
+else if(grade.value == "B")
+
+{
+
+gradePoint = 3.7;
+
+}
+
+else if(grade.value == "C")
+
+{
+
+gradePoint = 3.6;
+
+}
+
+else if(grade.value == "D")
+
+{
+
+gradePoint = 3.5;
+
+}
+
+else if(grade.value == "E")
+
+{
+
+gradePoint = 3.4;
+
+}
+
+else if(grade.value == "F")
+
+{
+
+gradePoint = 3.0;
+
+}
+
+if((gradePoint > 3.7 && studentStatus.value == "2") || (gradePoint > 3.2 && studentStatus.value == "1"))
+
+{
+
+message.innerHTML = "Congratulation you are qualified for the post applied. Please click the link to <a href='www.test.com'>proceed...</a>";
+
+}
+
+else
+
+{
+
+message.innerHTML = "Thanks for your interest, seems your qualification opt for other position. Please try for other positions";
+
+}
+
+}
+
+function createNode(element) {
+
+return document.createElement(element);
+
+}
+
+function getCourse(selectObject) {debugger;
+
+var ugCourse = [{Position1 : "CSE 3203 Mobile System Overview", Position2 : "IT 6203 IT Design Studio"},
+
+{Position1 : "IT 4213 Mobile Web Development", Position2 : "IT 6753 Advanced Web"}];
+
+var pgCourse = [{Position1 : "IT 4153 Advanced Database", Position2: "IT 6713 Business Intelligence"},
+
+{Position1 : "IT 4713 BI Systems", Position2: "IT 7113 Data Visualization"}];
+
+var position = document.getElementById("position");
+
+var studentStatus = document.getElementById("status");
+
+var courseSelect = document.getElementById("course");
+
+if(position.value == "1" && studentStatus.value == "1")
+
+{
+
+courseSelect.innerHTML = "";
+
+ugCourse.forEach(function(val, ind) {
+
+var option = createNode('option');
+
+option.innerHTML = val.Position1;
+
+option.value = ind + 1;
+
+courseSelect.appendChild(option);
+
+});
+
+}
+
+else if(position.value == "2" && studentStatus.value == "1")
+
+{
+
+courseSelect.innerHTML = "";
+
+ugCourse.forEach(function(val, ind) {debugger;
+
+var option = createNode('option');
+
+option.innerHTML = val.Position2;
+
+option.value = ind + 1;
+
+courseSelect.appendChild(option);
+
+});
+
+}
+
+else if(position.value == "1" && studentStatus.value == "2")
+
+{
+
+courseSelect.innerHTML = "";
+
+pgCourse.forEach(function(val, ind) {
+
+var option = createNode('option');
+
+option.innerHTML = val.Position1;
+
+option.value = ind + 1;
+
+courseSelect.appendChild(option);
+
+});
+
+}
+
+else if(position.value == "2" && studentStatus.value == "2")
+
+{
+
+courseSelect.innerHTML = "";
+
+pgCourse.forEach(function(val, ind) {
+
+var option = createNode('option');
+
+option.innerHTML = val.Position2;
+
+option.value = ind + 1;
+
+courseSelect.appendChild(option);
+
+});
+
+}
+
+}
+
+</script>
+
+</head>
+
 <body>
 
 <div class="header">Student Form</div>
@@ -107,3 +411,9 @@ Please fill in the following information to apply for the vacant post
 <div id="message-content" class="message-content">
 
 </div>
+
+</div>
+
+</body>
+
+</html>
